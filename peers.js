@@ -60,6 +60,11 @@ var Peer = (function() {
 
     _onNewIceCandidate: function(event) {
       this.trigger("icecandidate", event.candidate);
+      if (!event.candidate) {
+        if (this.pc.localDescription.sdp.indexOf(' relay ') != -1) {
+          console.log('oh yeah, we have a turn candidate');
+        }
+      }
     },
 
     _onIceStateChange: function() {

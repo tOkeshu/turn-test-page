@@ -1,0 +1,40 @@
+article.container {
+    padding-top: 20px;
+}
+
+.jumbotron h1, .jumbotron p, .jumbotron .submit {
+    text-align: center;
+}
+
+.results .pings {
+    float: right;
+    margin-left: 10px;
+}
+
+.results .badge-success {
+    background-color: #398439;
+}
+
+.results .badge-danger {
+    background-color: #D9534F
+}
+
+.hidden {
+    display: none;
+}
+
+.container button.run,
+.container.running button.stop {
+    display: inline-block;
+}
+.container.running .results {
+    display: block;
+}
+
+.container.running button.run,
+.container button.stop,
+.hidden {
+    display: none;
+}
+
+

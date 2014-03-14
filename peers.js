@@ -1,9 +1,14 @@
 var Peer = (function() {
 
-  function getLocalIPs() {
-    return ["10.249.25.61", "89.246.75.169", "0.0.0.0"];
-    // return ["10.249.25.61", "89.246.75.169"];
-  };
+  var localIPs;
+  (function() {
+    var pc = new mozRTCPeerConnection();
+    var dc = pc.createDataChannel("bar", {id: 1});
+    pc.createOffer(function(offer) {
+      var regexp = /((\d){1,3}\.){3}(\d){1,3}/g;
+      localIPs = offer.sdp.match(regexp);
+    }, function() {});
+  }());
 
   function Peer(config) {
     var pc = new mozRTCPeerConnection(config);
@@ -71,9 +76,8 @@ var Peer = (function() {
     },
 
     _mangleSDP: function(payload) {
-      var localIPs = getLocalIPs();
       // ["1.2.3.4", "5.6.7.8"] => /1\.2\.3\.4|5\.6\.7\.8/g
-      var regex = new RegExp(getLocalIPs().map(function(ip) {
+      var regex = new RegExp(localIPs.map(function(ip) {
         return ip.replace(/\./g, "\\.");
       }).join("|"), "g");
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebRTC TURN test page</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="app.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <article class="container">
+
+      <div class="jumbotron">
+        <h1>WebRTC TURN test page</h1>
+        <p class="lead">Test your TURN server configuration by filling the form and run the test</p>
+
+        <form role="form">
+          <div class="form-group">
+            <label for="url">Url</label>
+            <input type="text" class="form-control" id="url" placeholder="turn:example.com:8080?transport=udp">
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="FooBar">
+          </div>
+          <div class="form-group">
+            <label for="credential">Credential</label>
+            <input type="text" class="form-control" id="credential" placeholder="Cr3d3t14l">
+          </div>
+
+          <hr>
+
+          <div class="submit">
+            <button type="submit" class="run btn btn-lg btn-success">Run the test</button>
+            <button type="submit" class="stop btn btn-lg">Stop the test</button>
+          </div>
+
+          <hr>
+
+          <div class="alert results hidden">
+            <span class="message"></span>
+            <span class="pings dropped">Pings Dropped <span class="badge badge-danger">0</span></span>
+            <span class="pings received">Pings Received <span class="badge badge-success">0</span></span>
+            <span class="pings sent">Pings Sent <span class="badge">0</span></span>
+
+          </div>
+        </form>
+
+      </div>
+
+    </article>
+
+    <script type="text/javascript" src="microevent.js"></script>
+    <script type="text/javascript" src="peers.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+  </body>
+</html>
+

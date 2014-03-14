@@ -13,7 +13,8 @@ The following python should do the trick:
     $ python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"
     Serving HTTP on 0.0.0.0 port 8000 ...
 
-Then point your browser to http://localhost:8000/turn-test-page.html
+Then point your browser to
+[http://localhost:8000/turn-test-page.html](http://localhost:8000/turn-test-page.html)
 
 License
 -------
